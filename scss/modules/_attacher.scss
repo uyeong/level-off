@@ -1,0 +1,48 @@
+// ------------------------------------- //
+// Style of Attacher
+// ------------------------------------- //
+
+$module: 'attacher';
+
+.#{$module} {
+    width: 100%;
+    background: $white;
+    border-radius: .3em;
+
+    &__inner {
+        min-height: 420px;
+        position: relative;
+    }
+
+    &__message {
+        text-align: center;
+        color: $gray-light;
+        z-index: 1;
+
+        i, span {
+            display: inline-block;
+        }
+
+        i {
+            font-size: 6em;
+            color: lighten($gray-light, 20%);
+        }
+
+        span {
+            font-size: 1.5em;
+            padding-top: .75em;
+        }
+    }
+
+    &__input {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: auto;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+}

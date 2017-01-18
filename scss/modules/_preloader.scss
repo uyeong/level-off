@@ -1,0 +1,40 @@
+// ------------------------------------- //
+// Style of Preloader
+// ------------------------------------- //
+
+$module: 'preloader';
+
+.#{$module} {
+    @extend .centering;
+    position: absolute;
+    width: 3em;
+    height: 3em;
+
+    &__icon {
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: url('../svg/preloader-blue.svg');
+        animation: rotating 1s linear infinite;
+        will-change: transform;
+    }
+
+    &.preloader--small {
+        width: 2em;
+        height: 2em;
+    }
+
+    &.preloader--white &__icon {
+        background: url('../svg/preloader-white.svg');
+    }
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    to {
+        transform: rotate(360deg) translate3d(0, 0, 0);
+    }
+}
+

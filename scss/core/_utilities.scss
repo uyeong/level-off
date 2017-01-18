@@ -1,0 +1,47 @@
+// ------------------------------------- //
+// Style of Utilities
+// ------------------------------------- //
+
+.blind,
+%blind {
+    font-size: 0;
+    height: 0;
+    left: 0;
+    line-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+.clear {
+    clear: both;
+
+    &::after {
+        content: ' ';
+        clear: both;
+        display: table;
+    }
+}
+
+.transparent {
+    box-shadow: none;
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+}
+
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: normal;
+}
+
+.centering {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
