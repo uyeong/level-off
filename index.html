@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Image Level Off</title>
+    <link rel="stylesheet" href="./vendors/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./vendors/initialize-css/dist/initialize.min.css">
+    <link rel="stylesheet" href="./vendors/cropperjs/dist/cropper.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header class="header">
+            <div class="header__inner">
+                <div class="header__contents">
+                    <h1 class="header__title">
+                        <span>Image Level Off</span>
+                        <a
+                            class="github-button"
+                            href="https://github.com/uyeong/level-off"
+                            data-icon="octicon-star"
+                            data-style="mega"
+                            data-count-href="/uyeong/level-off/stargazers"
+                            data-count-api="/repos/uyeong/level-off#stargazers_count"
+                            data-count-aria-label="# stargazers on GitHub"
+                            aria-label="Star uyeong/level-off on GitHub"
+                        >
+                            Star
+                        </a>
+                    </h1>
+                    <p class="header__description">
+                        Level Off는 수평이 맞지 않는 이미지를 보정할 수 있는 도구입니다.
+                        비뚤어진 이미지를 완벽한 이미지로 만들어보세요!
+                    </p>
+                </div>
+                <div class="header__links">
+                    <a href="" class="header__link-github">
+                        <i class="fa fa-github" aria-hidden="true"></i>
+                        <span>Fork on Github</span>
+                    </a>
+                    <a href="" class="header__link-facebook">
+                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        <span>Coderifleman</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main__inner">
+                <div class="level-off">
+                    <div class="level-off__inner">
+                        <div class="level-off__main">
+                            <div class="attacher">
+                                <div class="attacher__inner">
+                                    <div class="attacher__message centering">
+                                        <i class="fa fa-camera" aria-hidden="true"></i><br/>
+                                        <span>이미지를 선택하세요.</span>
+                                    </div>
+                                    <div class="attacher__selector">
+                                        <input class="attacher__input" type="file" accept="image/*"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="crop-box">
+                                <div class="crop-box__inner">
+                                    <div class="crop-box__target">
+                                        <img class="crop-box__image" src=""/>
+                                    </div>
+                                    <div class="crop-box__guide-line">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420"></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="level-off__preloader">
+                            <div class="level-off__preloader-dimmed"></div>
+                            <div class="level-off__preloader-icon preloader">
+                                <i class="preloader__icon">
+                                    <span class="blind">불러오는 중...</span>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="control">
+                    <div class="control__inner">
+                        <a class="control__download-btn disabled" href="#" role="button">
+                            <span>다운로드</span>
+                            <div class="preloader preloader--small preloader--white">
+                                <i class="preloader__icon">
+                                    <span class="blind">처리중...</span>
+                                </i>
+                            </div>
+                        </a>
+                        <a class="control__reset-btn" href="#" role="button">초기화</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script async defer src="//buttons.github.io/buttons.js"></script>
+    <script src="./vendors/delegate/dist/delegate.js"></script>
+    <script src="./vendors/cropperjs/dist/cropper.min.js"></script>
+    <script src="./vendors/stepperjs/dist/stepperjs.browser-0.1.3.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

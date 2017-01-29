@@ -188,8 +188,3 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
-
-
-### Project file(s).
-
-dist

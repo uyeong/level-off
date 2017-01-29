@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "initialize-css@^1.3.2",
+        "scope": null,
+        "escapedName": "initialize-css",
+        "name": "initialize-css",
+        "rawSpec": "^1.3.2",
+        "spec": ">=1.3.2 <2.0.0",
+        "type": "range"
+      },
+      "/Users/uyeong/WebstormProjects/level-off"
+    ]
+  ],
+  "_from": "initialize-css@>=1.3.2 <2.0.0",
+  "_id": "initialize-css@1.3.2",
+  "_inCache": true,
+  "_location": "/initialize-css",
+  "_nodeVersion": "5.7.1",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/initialize-css-1.3.2.tgz_1480278664209_0.9610321940854192"
+  },
+  "_npmUser": {
+    "name": "jeroenoomsnl",
+    "email": "info@jeroenooms.nl"
+  },
+  "_npmVersion": "3.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "initialize-css@^1.3.2",
+    "scope": null,
+    "escapedName": "initialize-css",
+    "name": "initialize-css",
+    "rawSpec": "^1.3.2",
+    "spec": ">=1.3.2 <2.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/initialize-css/-/initialize-css-1.3.2.tgz",
+  "_shasum": "ac89f628c81083cd7751b4117f972951555713ac",
+  "_shrinkwrap": null,
+  "_spec": "initialize-css@^1.3.2",
+  "_where": "/Users/uyeong/WebstormProjects/level-off",
+  "author": {
+    "name": "Jeroen Ooms",
+    "email": "info@jeroenooms.nl",
+    "url": "http://jeroenooms.nl"
+  },
+  "bugs": {
+    "url": "https://github.com/jeroenoomsNL/initialize-css/issues"
+  },
+  "dependencies": {},
+  "description": "Initialize.css is a complete and customizable collection of CSS best practices based on Normalize.css and HTML5 Boilerplate. Available in CSS and configurable SASS (SCSS) and LESS format.",
+  "devDependencies": {
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-filter": "^4.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-if": "^2.0.2",
+    "gulp-jshint": "^2.0.4",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^2.2.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.4",
+    "jshint-stylish": "^2.2.1",
+    "rimraf": "^2.5.4"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "ac89f628c81083cd7751b4117f972951555713ac",
+    "tarball": "https://registry.npmjs.org/initialize-css/-/initialize-css-1.3.2.tgz"
+  },
+  "engines": {
+    "node": ">=4.1.1",
+    "npm": ">=3.3.4"
+  },
+  "gitHead": "bc8efc1023648cd4aa5ba2713eae0d5910b319e9",
+  "homepage": "http://jeroenoomsnl.github.io/initialize-css/",
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "less",
+    "initialize",
+    "boilerplate",
+    "normalize",
+    "reset",
+    "typography"
+  ],
+  "license": "MIT",
+  "main": "dist/_initialize.scss",
+  "maintainers": [
+    {
+      "name": "jeroenoomsnl",
+      "email": "info@jeroenooms.nl"
+    }
+  ],
+  "name": "initialize-css",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeroenoomsNL/initialize-css.git"
+  },
+  "scripts": {},
+  "version": "1.3.2"
+}

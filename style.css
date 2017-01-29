@@ -1,0 +1,321 @@
+/* ------------------------------------- */
+/*           Style of Layouts            */
+/* ------------------------------------- */
+
+html,
+body,
+.wrap {
+    font-family: 'Apple SD Gothic Neo', AppleSDGothicNeo-Regular, '맑은 고딕', 'Malgun Gothic', '돋움', dotum, AppleGothic, sans-serif, '굴림', Gulim, Helvetica;
+    font-size: 1em;
+    background: #f1f1f1;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------------- */
+/*           Style of Utilities          */
+/* ------------------------------------- */
+
+.blind {
+     font-size: 0;
+     height: 0;
+     left: 0;
+     line-height: 0;
+     overflow: hidden;
+     position: absolute;
+     top: 0;
+     visibility: hidden;
+     width: 0;
+}
+
+/* ------------------------------------- */
+/*           Style of Preloader          */
+/* ------------------------------------- */
+
+.preloader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 3em;
+    height: 3em;
+}
+
+.preloader__icon {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url('./svg/preloader-blue.svg');
+    animation: rotating 1s linear infinite;
+    will-change: transform;
+}
+
+.preloader.preloader--small {
+    width: 2em;
+    height: 2em;
+}
+
+.preloader.preloader--white .preloader__icon {
+    background: url('./svg/preloader-white.svg');
+}
+
+@keyframes rotating {
+    from {
+        transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+    to {
+        transform: rotate(360deg) translate3d(0, 0, 0);
+    }
+}
+
+/* ------------------------------------- */
+/*            Style of Header            */
+/* ------------------------------------- */
+
+.header {
+    width: 100%;
+    padding: 4em;
+    background: #4a89dc;
+    color: #fff;
+}
+
+.header__inner {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2em;
+    display: flex;
+}
+
+.header__contents {
+    padding-right: 4em;
+}
+
+.header__links a {
+    width: 10em;
+    color: #fff;
+    padding: 0 1.2em;
+    line-height: 3em;
+    display: block;
+    background: #34548d;
+    text-decoration: none;
+    border-radius: .3em;
+    text-align: center;
+}
+
+.header__links span {
+    padding-left: .125em;
+}
+
+.header__title {
+    font-size: 3em;
+    line-height: 1.4;
+    margin: 0 0 .75em;
+}
+
+.header__description {
+    font-size: 1.375em;
+}
+
+.header__link-facebook {
+    margin-top: 2em;
+}
+
+/* ------------------------------------- */
+/*             Style of Main             */
+/* ------------------------------------- */
+
+.main {
+    width: 100%;
+    padding: 4em;
+    color: #333;
+}
+
+.main__inner {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 2em;
+}
+
+/* ------------------------------------- */
+/*           Style of LevelOff           */
+/* ------------------------------------- */
+
+.level-off {
+    max-width: 600px;
+    margin: 2em auto;
+}
+
+.level-off__inner {
+    position: relative;
+}
+
+.level-off .crop-box {
+    display: none;
+}
+
+.level-off--crop .attacher {
+    display: none;
+}
+
+.level-off--crop .crop-box {
+    display: block;
+}
+
+.level-off__preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity .3s linear;
+    z-index: 3;
+}
+
+.level-off.loading .level-off__preloader {
+   opacity: 1;
+}
+
+.level-off__preloader-dimmed {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: .8;
+}
+
+/* ------------------------------------- */
+/*           Style of Attacher           */
+/* ------------------------------------- */
+
+.attacher {
+    width: 100%;
+    background: #fff;
+    border-radius: .3em;
+}
+
+.attacher__inner {
+    min-height: 420px;
+    position: relative;
+}
+
+.attacher__message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #777;
+    z-index: 1;
+}
+
+.attacher__message i,
+.attacher__message span {
+    display: inline-block;
+}
+
+.attacher__message i {
+    font-size: 6em;
+    color: #aaa;
+}
+
+.attacher__message span {
+    font-size: 1.5em;
+    padding-top: .75em;
+}
+
+.attacher__input {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+/* ------------------------------------- */
+/*           Style of CropBox            */
+/* ------------------------------------- */
+
+.crop-box {
+    width: 100%;
+    border-radius: .3em;
+    overflow: hidden;
+}
+
+.crop-box__inner {
+    /*min-height: 420px;*/
+    position: relative;
+}
+
+.crop-box .cropper-view-box {
+    outline: none;
+}
+
+.crop-box__image {
+    width: 100%;
+}
+
+.crop-box__guide-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+/* ------------------------------------- */
+/*            Style of Control           */
+/* ------------------------------------- */
+
+.control {
+    width: 100%;
+    text-align: center;
+}
+
+.control__inner {
+    position: relative;
+}
+
+.control a {
+    position: relative;
+    width: 10em;
+    color: #fff;
+    padding: 0 1.2em;
+    line-height: 3em;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: .3em;
+    text-align: center;
+}
+
+.control__download-btn {
+    background: #4a89dc;
+    margin-right: .3em;
+    transition: background .3s linear;
+}
+
+.control__download-btn .preloader {
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+
+.control__download-btn.loading .preloader {
+    opacity: 1;
+}
+
+.control__download-btn.disabled {
+    background: #b1b1b1;
+}
+
+.control__reset-btn {
+    background: #da4453;
+}

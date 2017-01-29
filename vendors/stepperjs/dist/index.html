@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo - StepperJS</title>
+    <style>
+        body,html{font-family:'Apple SD Gothic Neo',AppleSDGothicNeo-Regular,'맑은 고딕','Malgun Gothic','돋움',dotum,AppleGothic,sans-serif,'굴림',Gulim,Helvetica;font-size:1em;padding:0;margin:0}
+        .section{margin-top:20px}
+        .wrapper{padding:20px}
+        .animation{width:100%;height:80px;border:1px solid #000;font-size:.75rem}
+        .animation__inner{position:relative;width:100%;height:100%;overflow:hidden;transform:translate3d(0,0,0)}
+        .animation__target{position:absolute;width:80px;height:80px;background:#000;left:0;top:0;-webkit-will-change:left;-moz-will-change:left;will-change:left}
+        .animation__target span{display:inline-block;text-align:center;padding:26px 0;color:#FFF}
+        .controller__switch{display:inline-block;margin:10px 10px 0 0}
+        .console__inner {position:relative;width:100%;height:150px;overflow:hidden;transform:translate3d(0,0,0)}
+        .console__inner textarea{position:absolute;width:100%;height:150px;padding:10px;margin:0;box-sizing:border-box;left:0;-webkit-will-change:scroll-position;-moz-will-change:scroll-position;will-change:scroll-position}
+    </style>
+<script type="text/javascript" src="stepperjs.browser-0.1.3.min.js"></script></head>
+<body>
+<div class="wrapper">
+    <h1>StepperJS</h1>
+    <div class="section animation">
+        <div class="animation__inner">
+            <div class="animation__target">
+                <span>Animation target</span>
+            </div>
+        </div>
+    </div>
+    <div class="section controller">
+        <div class="controller__inner">
+            <div class="controller__switch">
+                <label>
+                    <span>Duration</span><br/>
+                    <input type="number" name="duration" value="1500"/>
+                </label>
+            </div>
+            <div class="controller__switch">
+                <label>
+                    <span>Easings</span><br/>
+                    <select name="easing"></select>
+                </label>
+            </div>
+            <div class="controller__switch">
+                <label>
+                    <span>Loop</span><br/>
+                    <select name="loop">
+                        <option value="0" selected>NO</option>
+                        <option value="1">YES</option>
+                    </select>
+                </label>
+            </div>
+             <div class="controller__switch">
+                <label>
+                    <span>Reverse</span><br/>
+                    <select name="reverse">
+                        <option value="0" selected>NO</option>
+                        <option value="1">YES</option>
+                    </select>
+                </label>
+            </div>
+            <div class="controller__switch">
+                <button class="button controller__play-btn">Start</button>
+                <button class="button controller__stop-btn">Stop</button>
+            </div>
+        </div>
+    </div>
+    <div class="section console">
+        <div class="console__inner">
+            <textarea name="console" cols="30" rows="10" readonly></textarea>
+        </div>
+    </div>
+</div>
+
+<script>
+    var elAnimationWrap = document.querySelector('.animation');
+    var elAnimationTarget = document.querySelector('.animation__target');
+    var elDurationInput = document.querySelector('input[name=duration]');
+    var elEasingSelect = document.querySelector('select[name=easing]');
+    var elLoopSelect = document.querySelector('select[name=loop]');
+    var elReverseSelect = document.querySelector('select[name=reverse]');
+    var elConsoleArea = document.querySelector('textarea[name=console]');
+    var elPlayButton = document.querySelector('.controller__play-btn');
+    var elStopButton = document.querySelector('.controller__stop-btn');
+    var selectedEasing = 'linear';
+    var selectedLoop = false;
+    var selectedReverse = false;
+    var endline = 0;
+    var stepper = new stepperjs.Stepper().on({
+        start: function () {
+            elPlayButton.innerHTML = 'Pause';
+
+            printLogging('', true);
+            printLogging('Stepper Start');
+            printLogging('  - Duration : ' + stepper.duration);
+            printLogging('  - Easing : ' + selectedEasing);
+            printLogging('  - Loop : ' + (selectedLoop ? 'YES' : 'NO'));
+            printLogging('----------------------');
+        },
+        update: function (now) {
+            var position = endline * now + 'px';
+
+            elAnimationTarget.style.left = position;
+
+            printLogging('now : ' + now);
+            printLogging('left : ' + position);
+        },
+        paused: function () {
+            elPlayButton.innerHTML = 'Start';
+
+            printLogging('----------------------');
+            printLogging('paused!!');
+        },
+        ended: function () {
+            elPlayButton.innerHTML = 'Start';
+
+            printLogging('----------------------');
+            printLogging('ended!!');
+        },
+        stopped: function () {
+            elAnimationTarget.style.left = '0px';
+            elPlayButton.innerHTML = 'Start';
+
+            printLogging('----------------------');
+            printLogging('stopped!!');
+        }
+    });
+
+    function drawSelectOfEasingList() {
+        var option,
+            key;
+
+        for(key in stepperjs.easings) {
+            option = document.createElement('option');
+            option.text = key;
+            option.value = key;
+
+            elEasingSelect.add(option, null);
+        }
+    }
+
+    function getEndlinePosition() {
+        var parentWidth = parseInt(window.getComputedStyle ? window.getComputedStyle(elAnimationWrap).width : elAnimationWrap.clientWidth, 10);
+        var targetWidth = parseInt(window.getComputedStyle ? window.getComputedStyle(elAnimationTarget).width : elAnimationTarget.clientWidth, 10);
+
+        return parentWidth - targetWidth;
+    }
+
+    function printLogging(message, clear) {
+        elConsoleArea.value = clear ? message + '\n' : elConsoleArea.value + message + '\n';
+        elConsoleArea.scrollTop = elConsoleArea.scrollHeight;
+    }
+
+    function attachControlEvents() {
+        if (document.addEventListener) {
+            elEasingSelect.addEventListener('change', onChangeEasingSelect);
+            elLoopSelect.addEventListener('change', onChangeLoopSelect);
+            elReverseSelect.addEventListener('change', onChangeReverseSelect);
+            elPlayButton.addEventListener('click', onClickPlayButton);
+            elStopButton.addEventListener('click', onClickStopButton);
+        } else {
+            elEasingSelect.attachEvent('onchange', onChangeEasingSelect);
+            elLoopSelect.attachEvent('onchange', onChangeLoopSelect);
+            elReverseSelect.attachEvent('onchange', onChangeReverseSelect);
+            elPlayButton.attachEvent('onclick', onClickPlayButton);
+            elStopButton.attachEvent('onclick', onClickStopButton);
+        }
+    }
+
+    function onChangeEasingSelect(event) {
+        selectedEasing = (event.currentTarget || event.srcElement).value;
+    }
+
+    function onChangeLoopSelect(event) {
+        selectedLoop = (event.currentTarget || event.srcElement).value === '1';
+    }
+
+    function onChangeReverseSelect(event) {
+        selectedReverse = (event.currentTarget || event.srcElement).value === '1';
+    }
+
+    function onClickPlayButton() {
+        var isStart = elPlayButton.innerHTML === 'Start';
+
+        if (isStart) {
+            stepper.option({
+                duration: parseInt(elDurationInput.value, 10),
+                easing: stepperjs.easings[selectedEasing],
+                loop: selectedLoop,
+                reverse: selectedReverse
+            });
+
+            endline = getEndlinePosition();
+
+            stepper.start();
+        } else {
+            stepper.pause();
+        }
+
+    }
+
+    function onClickStopButton() {
+        stepper.stop();
+    }
+
+    drawSelectOfEasingList();
+    attachControlEvents();
+</script>
+</body>
+</html>

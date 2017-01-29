@@ -5,8 +5,7 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack-dev-server --progress --inline"
+    "copy": "node ./copyfiles.js"
   },
   "repository": {
     "type": "git",
@@ -18,31 +17,17 @@
     "url": "https://github.com/UYEONG/level-off/issues"
   },
   "homepage": "https://github.com/UYEONG/level-off#readme",
+  "gh-pages-deploy": {
+    "staticpath": "."
+  },
   "devDependencies": {
-    "autoprefixer": "^6.6.1",
-    "babel-core": "^6.21.0",
-    "babel-loader": "^6.2.10",
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "babel-preset-es2015": "^6.18.0",
-    "css-loader": "^0.26.1",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "file-loader": "0.9.0",
-    "handlebars": "4.0.6",
-    "handlebars-loader": "1.4.0",
-    "html-webpack-plugin": "^2.26.0",
-    "node-sass": "^4.3.0",
-    "postcss-loader": "^1.2.2",
-    "sass-loader": "^4.1.1",
-    "style-loader": "^0.13.1",
-    "url-loader": "0.5.7",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "^1.16.2"
+    "copyfiles": "^1.1.0",
+    "gh-pages-deploy": "^0.4.2"
   },
   "dependencies": {
     "cropperjs": "1.0.0-beta",
     "delegate": "3.1.1",
     "font-awesome": "^4.7.0",
-    "freezer-js": "0.11.2",
     "initialize-css": "^1.3.2",
     "stepperjs": "0.1.3"
   }

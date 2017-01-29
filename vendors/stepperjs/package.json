@@ -1,0 +1,129 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "stepperjs@0.1.3",
+        "scope": null,
+        "escapedName": "stepperjs",
+        "name": "stepperjs",
+        "rawSpec": "0.1.3",
+        "spec": "0.1.3",
+        "type": "version"
+      },
+      "/Users/uyeong/WebstormProjects/level-off"
+    ]
+  ],
+  "_from": "stepperjs@0.1.3",
+  "_id": "stepperjs@0.1.3",
+  "_inCache": true,
+  "_location": "/stepperjs",
+  "_nodeVersion": "6.9.2",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/stepperjs-0.1.3.tgz_1483715901425_0.04546454385854304"
+  },
+  "_npmUser": {
+    "name": "uyeong",
+    "email": "uyeong21c@gmail.com"
+  },
+  "_npmVersion": "3.10.9",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "stepperjs@0.1.3",
+    "scope": null,
+    "escapedName": "stepperjs",
+    "name": "stepperjs",
+    "rawSpec": "0.1.3",
+    "spec": "0.1.3",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/stepperjs/-/stepperjs-0.1.3.tgz",
+  "_shasum": "96e6014e242b27484219961d55b9f8eb4e343ea6",
+  "_shrinkwrap": null,
+  "_spec": "stepperjs@0.1.3",
+  "_where": "/Users/uyeong/WebstormProjects/level-off",
+  "author": {
+    "name": "UYEONG",
+    "email": "uyeong21c@gmail.com",
+    "url": "http://blog.coderifleman.com/"
+  },
+  "bugs": {
+    "url": "https://github.com/UYEONG/stepperjs/issues"
+  },
+  "dependencies": {
+    "eventemitter3": "2.0.2",
+    "raf": "3.3.0"
+  },
+  "description": "A tiny requestAnimationFrame wrapper to improve usability.",
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-loader": "6.2.10",
+    "babel-plugin-transform-class-properties": "6.19.0",
+    "babel-plugin-transform-es3-member-expression-literals": "6.8.0",
+    "babel-plugin-transform-es3-property-literals": "6.8.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-es2015-loose": "8.0.0",
+    "chai": "3.5.0",
+    "gh-pages": "0.12.0",
+    "html-webpack-plugin": "2.24.1",
+    "isparta-loader": "2.0.0",
+    "karma": "1.3.0",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-coverage": "1.1.1",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-mocha": "1.3.0",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "karma-sinon": "1.0.5",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "1.8.1",
+    "mocha": "3.2.0",
+    "phantomjs-polyfill-find-index": "^1.0.1",
+    "raf-stub": "^1.0.1",
+    "sinon": "1.17.6",
+    "webpack": "1.14.0",
+    "webpack-dev-server": "1.16.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "96e6014e242b27484219961d55b9f8eb4e343ea6",
+    "tarball": "https://registry.npmjs.org/stepperjs/-/stepperjs-0.1.3.tgz"
+  },
+  "files": [
+    "dist"
+  ],
+  "gitHead": "c77658ed51d002f7ae8a3c352fb3d5265b8a0c25",
+  "homepage": "https://github.com/UYEONG/stepperjs#readme",
+  "keywords": [
+    "ref",
+    "requestAnimationFrame"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "maintainers": [
+    {
+      "name": "uyeong",
+      "email": "uyeong21c@gmail.com"
+    }
+  ],
+  "name": "stepperjs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UYEONG/stepperjs.git"
+  },
+  "scripts": {
+    "build": "npm run build:browser && npm run build:commonjs",
+    "build:browser": "webpack --config webpack.config.js",
+    "build:commonjs": "babel src -d dist --ignore browser.js --presets es2015 --plugins transform-class-properties",
+    "deploy": "gh-pages -d dist -m 'Site updated'",
+    "dev": "webpack-dev-server --progress --inline",
+    "test": "karma start --single-run --no-auto-watch --coverage"
+  },
+  "version": "0.1.3"
+}
